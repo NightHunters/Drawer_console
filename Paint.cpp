@@ -2,9 +2,8 @@
 
 Paint::Paint(QPaintDevice* d):QPainter(d)
 {
-	//painter = NULL;
-}
 
+}
 /*Paint::Paint(QPainter *pa) //:painter(pa)//构造函数
 {
 	QPainter a;
@@ -84,7 +83,7 @@ void Paint::drawline_Bresenham(int x1, int y1, int x2, int y2)//线段生成的Bresen
 		}
 		else
 		{
-			px = -2 * deltax - deltax;
+			px = -2 * deltay - deltax;
 			for (int i = 0; i < steps; i++)
 			{
 				x += 1;
@@ -139,7 +138,7 @@ void Paint::drawline_Bresenham(int x1, int y1, int x2, int y2)//线段生成的Bresen
 		}
 		else
 		{
-			py = -2 * deltay - deltay;
+			py = -2 * deltax - deltay;
 			for (int i = 0; i < steps; i++)
 			{
 				y += 1;
