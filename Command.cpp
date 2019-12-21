@@ -4,6 +4,15 @@ Command::Command()
 { 
 	argc = 0; 
 }
+Command::Command(const Command& a)
+{
+	argc = a.argc;
+	for (int i = 0; i <a.argc; i++)
+	{
+		argv[i] = new char[MAX_COMMAND_SEG_LEN];
+		strcpy(argv[i], a.argv[i]);
+	}
+}
 Command::~Command() 
 {
 	for (int i = 0; i < argc; i++) 
@@ -21,7 +30,7 @@ istream & operator >> (istream &cin, Command &command)
 		}
 		command.argc = 0;
 	}
-	char tmp[MAX_ATTR_LEN * MAX_COL_SIZE], *p;
+	char tmp[MAX_COMMAND_SEG * MAX_COMMAND_SEG_LEN], *p;
 	const char * dlim = " ,:";
 	cin.getline(tmp, MAX_COMMAND_SEG * MAX_COMMAND_SEG_LEN);
 	p = strtok(tmp, dlim);
@@ -45,7 +54,7 @@ ifstream & operator >> (ifstream &input, Command &command)
 		}
 		command.argc = 0;
 	}
-	char tmp[MAX_ATTR_LEN * MAX_COL_SIZE], *p;
+	char tmp[MAX_COMMAND_SEG * MAX_COMMAND_SEG_LEN], *p;
 	const char * dlim = " ,:";
 	input.getline(tmp, MAX_COMMAND_SEG * MAX_COMMAND_SEG_LEN);
 	p = strtok(tmp, dlim);
