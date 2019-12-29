@@ -24,9 +24,10 @@ public:
 	void translate(int dx,int dy,vector<Command>::iterator it);
 	void rotate(int x, int y, double a, vector<Command>::iterator it);
 	void scale(int x, int y, float s, vector<Command>::iterator it);
-	void clip_by_cohen_sutherland(int xL, int yB, int xR, int yT, vector<Command>::iterator it);
+	void clip_by_cohen_sutherland(int xL, int yB, int xR, int yT, vector<Command>::iterator &it);
+
 	void update_u(double p, double q, double &u1, double &u2);
-	void clip_by_liang_barsky(int xL, int yB, int xR, int yT, vector<Command>::iterator it);
+	void clip_by_liang_barsky(int xL, int yB, int xR, int yT, vector<Command>::iterator &it);
 	void preprocess(string commandfile, string savepath);//预处理，处理平移、旋转和缩放等操作
 	void process(vector<Command>::iterator outset);
 	void identify_command_by_file(string commandfile,string savepath);//解析从文件中输入的指令

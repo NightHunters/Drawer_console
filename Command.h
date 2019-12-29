@@ -16,6 +16,7 @@ public:
 	char *argv[MAX_COMMAND_SEG];//保存每行输入的指令
 	Command();
 	Command(const Command& a);//拷贝构造函数
+	void add_command(Command & x);//指令拼接，处理两行指令的情况（多边形，曲线）
 	~Command();
 	friend istream & operator >> (istream &cin, Command &command);//控制台输入
 	friend ifstream & operator >> (ifstream &input, Command &command);//文件输入

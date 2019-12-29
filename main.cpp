@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	QApplication a(argc, argv);
 	Canvas can;
 	can.test();
-	return a.exec();
+	return 0;//a.exec();
 }
 
 /*QPixmap pixmap(400, 200);

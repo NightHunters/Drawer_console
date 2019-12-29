@@ -20,6 +20,15 @@ Command::~Command()
 		delete[] argv[i];
 	}
 }
+void Command::add_command(Command & x)
+{
+	for (int i = 0; i < x.argc; i++)
+	{
+		argv[i+argc] = new char[MAX_COMMAND_SEG_LEN];
+		strcpy(argv[i + argc], x.argv[i]);
+	}
+	argc += x.argc;
+}
 istream & operator >> (istream &cin, Command &command)
 {
 	if (command.argc > 0)
